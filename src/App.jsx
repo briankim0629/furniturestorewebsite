@@ -4,7 +4,7 @@ import { AppContext } from "./Context/AppContext";
 import { useEffect, useState } from "react";
 import Newsletter from "./components/Newsletter";
 import Footer from "./components/Footer";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, HashRouter } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ProductsPage from "./pages/ProductsPage";
 import ProductPage from "./pages/ProductPage";
@@ -68,8 +68,8 @@ function App() {
   return (
     <AppContext.Provider
       value={{ products, addCart, cart, reduceCart, removeCart,cartLength }}
-    >
-      <Router>
+    > 
+      <HashRouter>
         <Nav />
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -78,7 +78,7 @@ function App() {
         </Routes>
         <Newsletter />
         <Footer />
-      </Router>
+      </HashRouter>
     </AppContext.Provider>
   );
 }
